@@ -4,11 +4,11 @@ public class Question3 {
 
 	private static Question3 question3;// private singleton nesnemiz
 
-	private Question3() { // Class'ımızı singleton ile oluşturduk
+	private Question3() { // Class'Ã½mÃ½zÃ½ singleton ile oluÃ¾turduk 
 
 	}
 
-	public static Question3 getInstance() {// Class'ımızın nesne aldığımız methodu
+	public static Question3 getInstance() {// Class'Ã½mÃ½zÃ½n nesne aldÃ½Ã°Ã½mÃ½z methodu
 		if (question3 == null) {
 			return question3 = new Question3();
 		}
@@ -17,31 +17,31 @@ public class Question3 {
 	}
 
 	public int SumForMe(int a, int b) {
-		System.out.println("3.Soru aritmetik operatörler olmadan toplama işlemi yapılıyor.");
-		int result;// sonuc için int değişken tanımladım
+		System.out.println("3.Soru aritmetik operatÃ¶rler olmadan toplama iÃ¾lemi yapÃ½lÃ½yor.");
+		int result;// sonuc iÃ§in int deÃ°iÃ¾ken tanÃ½mladÃ½m
 		try {
-			if (a < 0 || b < 0) {// sayılar negatif olmaması için kontrol koydum
-				throw new RuntimeException("Sayılar negatif olamaz!");
+			if (a < 0 || b < 0) {// sayÃ½lar negatif olmamasÃ½ iÃ§in kontrol koydum
+				throw new RuntimeException("SayÃ½lar negatif olamaz!");
 			}
-			if (a == 0 && b != 0) {// birisi 0 diğeri değil ise sonuç 0 olmayan değer oluyor
+			if (a == 0 && b != 0) {// birisi 0 diÃ°eri deÃ°il ise sonuÃ§ 0 olmayan deÃ°er oluyor
 				result = b;
-			} else if (b == 0 && a != 0) {// birisi 0 diğeri değil ise sonuç 0 olmayan değer oluyor
+			} else if (b == 0 && a != 0) {// birisi 0 diÃ°eri deÃ°il ise sonuÃ§ 0 olmayan deÃ°er oluyor
 				result = a;
-			} else if (b == 0 && a == 0) { // iki sayı da 0 ise sonuç 0
+			} else if (b == 0 && a == 0) { // iki sayÃ½ da 0 ise sonuÃ§ 0
 				result = 0;
 			} else {
-				while (b != 0) { // elde sayısı kalmayana kadar döngü içinde devam ediyoruz
-					int elde = a & b; // elde sayısını bulmak için and işlemine sokuyoruz
-					a = a ^ b; // burda xor işlemine sokarak elde olmadan toplama işlemi yapmış oluyoruz
-					b = elde << 1;// sonucumuza elde sayımızı da shift ederek varsa sonraki döngüye yoksa return e
-									// dönüyoruz
+				while (b != 0) { // elde sayÃ½sÃ½ kalmayana kadar dÃ¶ngÃ¼ iÃ§inde devam ediyoruz
+					int elde = a & b; // elde sayÃ½sÃ½nÃ½ bulmak iÃ§in and iÃ¾lemine sokuyoruz
+					a = a ^ b; // burda xor iÃ¾lemine sokarak elde olmadan toplama iÃ¾lemi yapmÃ½Ã¾ oluyoruz
+					b = elde << 1;// sonucumuza elde sayÃ½mÃ½zÃ½ da shift ederek varsa sonraki dÃ¶ngÃ¼ye yoksa return e
+									// dÃ¶nÃ¼yoruz
 				}
 
 				result = a;
 			}
 
 		} catch (Exception e) {
-			throw new RuntimeException("Bir hata ile karşılaştım! > " + e);
+			throw new RuntimeException("Bir hata ile karÃ¾Ã½laÃ¾tÃ½m! > " + e);
 		}
 		return result;
 	}

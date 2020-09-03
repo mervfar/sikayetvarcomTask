@@ -2,20 +2,19 @@ package main;
 
 import java.util.HashMap;
 
-@SuppressWarnings("unused") // ide için warning kapatma ayarı
+@SuppressWarnings("unused") // ide iÃ§in warning kapatma ayarÄ±
 public class Question1 {
 
 	private String alphabet = "abcdefghijklmnopqrstuvwxyz";
-	private HashMap<String, Boolean> letters = new HashMap<String, Boolean>(); // key=harf value=boolean olan bir
-																				// hashmap belirledik
+	private HashMap<String, Boolean> letters = new HashMap<String, Boolean>(); // key=harf value=boolean olan bir hashmap belirledik
 
 	private static Question1 question1;// private singleton nesnemiz
 
-	private Question1() { // Class'ımızı singleton ile oluşturduk
+	private Question1() { // Class'Ä±mÄ±zÄ± singleton ile oluÅŸturduk
 
 	}
 
-	public static Question1 getInstance() {// Class'ımızın nesne aldığımız methodu
+	public static Question1 getInstance() {// Class'Ä±mÄ±zÄ±n nesne aldÄ±ÄŸÄ±mÄ±z methodu
 		if (question1 == null) {
 			return question1 = new Question1();
 		}
@@ -25,41 +24,38 @@ public class Question1 {
 
 	public boolean isUniq(String s) { // uniq testi yapan method
 
-		System.out.println("1.Soru array kullanılarak çözüm yolu üretildi.");
+		System.out.println("1.Soru array kullanÄ±larak Ã§Ã¶zÃ¼m yolu Ã¼retildi.");
 		try {
-			if (s.matches(".*\\d+.*")) { // regex ile sayı tespiti
-				throw new RuntimeException("Girilen string numara veya rakam içeriyor!");
+			if (s.matches(".*\\d+.*")) { // regex ile sayÄ± tespiti
+				throw new RuntimeException("Girilen string numara veya rakam iÃ§eriyor!");
 			}
-			if (s.matches(".*\\p{Punct}.*")) {// regex ile noktlama işaretleri tespiti
-				throw new RuntimeException("Girilen string noktalama işaretleri içeriyor!");
+			if (s.matches(".*\\p{Punct}.*")) {// regex ile noktlama iÅŸaretleri tespiti
+				throw new RuntimeException("Girilen string noktalama iÅŸaretleri iÃ§eriyor!");
 			}
-			if (s.trim().indexOf(" ") != -1) {// trim haricinde whitespace var mı yok mu
-				throw new RuntimeException("Girilen string boşluk karakterleri içeriyor!");
+			if (s.trim().indexOf(" ") != -1) {// trim haricinde whitespace var mÄ± yok mu
+				throw new RuntimeException("Girilen string boÅŸluk karakterleri iÃ§eriyor!");
 			}
-			setMap(); // hashmap hazırlama methodumuzu çağırdık
+			setMap(); // hashmap hazÄ±rlama methodumuzu Ã§aÄŸÄ±rdÄ±k
 			String[] arrayToCheck = s.toLowerCase().trim().split("");
-			// input dan gelen string uppercase olma ihtimaline karşı lowercase uyguladık ve
-			// boşlukları trim yaptık
+			// input dan gelen string uppercase olma ihtimaline karÅŸÄ± lowercase uyguladÄ±k ve
+			// boÅŸluklarÄ± trim yaptÄ±k
 
-			for (String check : arrayToCheck) { // inputtan gelen her bir harfi kontrol ediyoruz sırasıyla
+			for (String check : arrayToCheck) { // inputtan gelen her bir harfi kontrol ediyoruz sÄ±rasÄ±yla
 
 				if (!letters.get(check)) {
-					letters.put(check, true); // eğer hashmap içinde karşısındaki değer false ise ben bunu kullandım
-												// diyerek
-												// true değerine çekiyoruz
-				} else { // eğer kontrol ederken true değerine denk gelirsek, bu harfin daha önceden
-							// kullanıldığını anlayıp false dönüyoruz
+					letters.put(check, true); // eÄŸer hashmap iÃ§inde karÅŸÄ±sÄ±ndaki deÄŸer false ise ben bunu kullandÄ±m diyerek  true deÄŸerine Ã§ekiyoruz
+				} else { // eÄŸer kontrol ederken true deÄŸerine denk gelirsek, bu harfin daha Ã¶nceden kullanÄ±ldÄ±ÄŸÄ±nÄ± anlayÄ±p false dÃ¶nÃ¼yoruz
 					return false;
 				}
 			}
 
 		} catch (Exception e) {
-			throw new RuntimeException("Bir hata ile karşılaştım! > " + e);
+			throw new RuntimeException("Bir hata ile karÅŸÄ±laÅŸtÄ±m! > " + e);
 		}
 		return true;
 	}
 
-	private void setMap() {// en başta hashmap'in içini alfabe ile doldurup değerlerini false yaptık
+	private void setMap() {// en baÅŸta hashmap'in iÃ§ini alfabe ile doldurup deÄŸerlerini false yaptÄ±k
 		String[] letterArray = alphabet.split("");
 		for (String s : letterArray) {
 			letters.put(s, false);

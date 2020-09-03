@@ -5,7 +5,7 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		Question1 question1 = Question1.getInstance();// her bir soru için ayrý class oluþturdum
+		Question1 question1 = Question1.getInstance();// her bir soru iÃ§in ayri class olusturdum
 		Quesiton2 question2 = Quesiton2.getInstance();
 		Question3 question3 = Question3.getInstance();
 
